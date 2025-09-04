@@ -20,6 +20,13 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
+        .scrolling-text {
+            animation: scroll 15s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
@@ -88,56 +95,70 @@
                 <p class="text-blue-100 text-lg">SMPN 3 LEMPUING JAYA</p>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8 mb-8">
-                <!-- Info Sekolah -->
-                <div class="lg:col-span-2 bg-white rounded-2xl shadow-xl p-8 card-hover border-l-4 border-blue-500">
-                    <div class="flex items-start space-x-6">
-                        <div class="flex-shrink-0">
-                            <div class="w-28 h-28 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                                <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">SMPN 3 LEMPUING JAYA</h3>
-                            <div class="space-y-3">
-                                <div class="flex items-center space-x-3">
-                                    <span class="text-2xl">📍</span>
-                                    <p class="text-gray-600">Jl. Pendidikan No. 123, Lempuing Jaya, Kab. Ogan Komering Ilir</p>
-                                </div>
-                                <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 border-l-4 border-blue-400">
-                                    <div class="flex items-center space-x-3">
-                                        <span class="text-2xl">👨‍💼</span>
-                                        <div>
-                                            <p class="text-sm text-gray-600 font-medium">Kepala Sekolah</p>
-                                            <p class="text-lg font-bold text-blue-700">Drs. Ahmad Suryadi, M.Pd</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Info Sekolah -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 card-hover border-l-4 border-blue-500 mb-8">
+                <!-- Logo Sekolah -->
+                <div class="flex justify-center mb-6">
+                    <div class="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                        <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+                        </svg>
                     </div>
                 </div>
-
-                <!-- Waktu Real-time -->
-                <div class="bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl shadow-xl p-6 text-white card-hover">
-                    <div class="text-center">
-                        <div class="mb-4">
-                            <span class="text-4xl">🕐</span>
+                
+                <!-- Nama Sekolah -->
+                <div class="text-center mb-6">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-2">SMPN 3 LEMPUING JAYA</h3>
+                </div>
+                
+                <!-- Alamat -->
+                <div class="flex items-center justify-center space-x-3 mb-6">
+                    <span class="text-2xl">📍</span>
+                    <p class="text-gray-600 text-center">Jl. Pendidikan No. 123, Lempuing Jaya, Kab. Ogan Komering Ilir</p>
+                </div>
+                
+                <!-- Kepala Sekolah -->
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 border-l-4 border-blue-400">
+                    <div class="flex items-center justify-center space-x-3">
+                        <span class="text-2xl">👨‍💼</span>
+                        <div class="text-center">
+                            <p class="text-sm text-gray-600 font-medium">Kepala Sekolah</p>
+                            <p class="text-lg font-bold text-blue-700">Drs. Ahmad Suryadi, M.Pd</p>
                         </div>
-                        <h3 class="text-lg font-semibold mb-4 text-green-100">Waktu Saat Ini</h3>
-                        <div id="currentTime" class="text-3xl font-bold mb-2"></div>
-                        <div id="currentDate" class="text-green-100 text-sm"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Statistik Kehadiran -->
-            <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+            <!-- Waktu Real-time -->
+            <div class="bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl shadow-xl p-6 text-white card-hover mb-8">
+                <div class="text-center">
+                    <div class="mb-4">
+                        <span class="text-4xl">🕐</span>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-4 text-green-100">Waktu Saat Ini</h3>
+                    <div id="currentTime" class="text-3xl font-bold mb-2"></div>
+                    <div id="currentDate" class="text-green-100 text-sm"></div>
+                </div>
+            </div>
+
+            <!-- Teks Berjalan Guru yang Hadir -->
+            <div class="bg-white rounded-2xl shadow-xl p-6 card-hover mb-8 border-l-4 border-green-500">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-2xl">📢</span>
+                    <h3 class="text-lg font-semibold text-gray-800">Guru yang Hadir Hari Ini</h3>
+                </div>
+                <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 overflow-hidden">
+                    <div id="scrollingText" class="whitespace-nowrap text-green-700 font-medium scrolling-text">
+                        <span id="attendanceText">Belum ada guru yang hadir hari ini</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistik Kehadiran Guru -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 card-hover mb-8">
                 <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-2xl font-bold text-gray-800">Statistik Kehadiran Hari Ini</h3>
-                    <span class="text-3xl">📊</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Statistik Kehadiran Guru Hari Ini</h3>
+                    <span class="text-3xl">👨‍🏫</span>
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl p-6 text-white text-center card-hover transform hover:scale-105 transition-all duration-300">
@@ -154,6 +175,36 @@
                         <div class="text-4xl mb-2">❌</div>
                         <div class="text-3xl font-bold mb-1" id="guruTidakHadir">0</div>
                         <div class="text-red-100 font-medium">Tidak Hadir</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistik Kehadiran Siswa -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800">Statistik Kehadiran Siswa Hari Ini</h3>
+                    <span class="text-3xl">👨‍🎓</span>
+                </div>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl p-6 text-white text-center card-hover transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl mb-2">👥</div>
+                        <div class="text-3xl font-bold mb-1" id="totalSiswa">0</div>
+                        <div class="text-purple-100 font-medium">Total Siswa</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-400 to-green-600 rounded-xl p-6 text-white text-center card-hover transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl mb-2">✅</div>
+                        <div class="text-3xl font-bold mb-1" id="siswaHadir">0</div>
+                        <div class="text-green-100 font-medium">Hadir</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl p-6 text-white text-center card-hover transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl mb-2">📝</div>
+                        <div class="text-3xl font-bold mb-1" id="siswaIzin">0</div>
+                        <div class="text-yellow-100 font-medium">Izin</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-red-400 to-red-600 rounded-xl p-6 text-white text-center card-hover transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl mb-2">❌</div>
+                        <div class="text-3xl font-bold mb-1" id="siswaAlfa">0</div>
+                        <div class="text-red-100 font-medium">Alfa</div>
                     </div>
                 </div>
             </div>
@@ -563,6 +614,7 @@
                     <div class="flex border-b border-gray-200 mb-6">
                         <button onclick="showAdminTab('dataGuru')" class="admin-tab px-6 py-3 text-blue-600 border-b-2 border-blue-600 font-medium">Data Guru</button>
                         <button onclick="showAdminTab('dataSiswa')" class="admin-tab px-6 py-3 text-gray-500 hover:text-blue-600 font-medium">Data Siswa</button>
+                        <button onclick="showAdminTab('dataKelas')" class="admin-tab px-6 py-3 text-gray-500 hover:text-blue-600 font-medium">Data Kelas</button>
                         <button onclick="showAdminTab('pengaturan')" class="admin-tab px-6 py-3 text-gray-500 hover:text-blue-600 font-medium">Pengaturan</button>
                     </div>
 
@@ -775,6 +827,108 @@
                         </div>
                     </div>
 
+                    <!-- Data Kelas Tab -->
+                    <div id="dataKelas" class="admin-tab-content hidden">
+                        <!-- Header dengan tombol tambah -->
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-semibold text-gray-800">Data Kelas</h3>
+                            <button onclick="showFormDataKelas()" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center space-x-2">
+                                <span class="text-xl">➕</span>
+                                <span>Tambah Data Kelas</span>
+                            </button>
+                        </div>
+
+                        <!-- Form Input Data Kelas (Hidden by default) -->
+                        <div id="formDataKelas" class="hidden bg-gray-50 rounded-xl p-6 mb-6 border-2 border-dashed border-gray-300">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold text-gray-800">Form Input Data Kelas</h4>
+                                <button onclick="hideFormDataKelas()" class="text-gray-500 hover:text-red-600 text-2xl font-bold">✕</button>
+                            </div>
+                            <form id="dataKelasForm" class="space-y-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Kelas</label>
+                                        <input type="text" id="namaKelas" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Contoh: VII A" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Tingkat</label>
+                                        <select id="tingkatKelas" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                                            <option value="">Pilih Tingkat</option>
+                                            <option value="VII">VII (Tujuh)</option>
+                                            <option value="VIII">VIII (Delapan)</option>
+                                            <option value="IX">IX (Sembilan)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Wali Kelas</label>
+                                        <select id="waliKelas" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                                            <option value="">Pilih Wali Kelas</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Kapasitas Maksimal</label>
+                                        <input type="number" id="kapasitasKelas" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Contoh: 32" min="1" max="50" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Ruang Kelas</label>
+                                        <input type="text" id="ruangKelas" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Contoh: R.01" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Tahun Ajaran</label>
+                                        <input type="text" id="tahunAjaran" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Contoh: 2024/2025" required>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Keterangan</label>
+                                    <textarea id="keteranganKelas" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows="3" placeholder="Keterangan tambahan (opsional)"></textarea>
+                                </div>
+                                <div class="flex justify-center space-x-4">
+                                    <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                                        <span id="submitButtonTextKelas">Simpan Data Kelas</span>
+                                    </button>
+                                    <button type="button" onclick="cancelFormDataKelas()" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                                        Batal
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Filter Tingkat -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Filter berdasarkan Tingkat</label>
+                            <select id="filterTingkatKelas" onchange="displayKelasData()" class="w-full md:w-64 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Semua Tingkat</option>
+                                <option value="VII">VII (Tujuh)</option>
+                                <option value="VIII">VIII (Delapan)</option>
+                                <option value="IX">IX (Sembilan)</option>
+                            </select>
+                        </div>
+
+                        <!-- Tabel Data Kelas -->
+                        <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Kelas</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tingkat</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Wali Kelas</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ruang</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jumlah Siswa</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kapasitas</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tahun Ajaran</th>
+                                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabelDataKelas" class="bg-white divide-y divide-gray-200">
+                                        <!-- Data akan diisi oleh JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Pengaturan Tab -->
                     <div id="pengaturan" class="admin-tab-content hidden">
                         <h3 class="text-xl font-semibold text-gray-800 mb-4">Pengaturan Sistem</h3>
@@ -830,6 +984,8 @@
         let siswaData = [];
         let nextSiswaId = 1;
         let absensiSiswaData = [];
+        let kelasData = [];
+        let nextKelasId = 1;
 
         // Function untuk menampilkan pesan error
         function showErrorMessage(message) {
@@ -901,9 +1057,10 @@
             document.getElementById('tanggalAbsensi').addEventListener('change', hideAllMessages);
             document.getElementById('waktuAbsensi').addEventListener('change', hideAllMessages);
             
-            // Initialize data guru table
+            // Initialize data tables
             displayGuruData();
             displaySiswaData();
+            displayKelasData();
             
             // Set current date for student attendance
             document.getElementById('tanggalAbsensiSiswa').value = today.toISOString().split('T')[0];
@@ -919,6 +1076,9 @@
                     updateStatusAbsensiHariIni(kelas, this.value);
                 }
             });
+            
+            // Initialize scrolling text
+            updateScrollingText();
         });
 
         // Function untuk update status absensi hari ini
@@ -1273,6 +1433,8 @@
         // Update statistics
         function updateStatistics() {
             const today = new Date().toISOString().split('T')[0];
+            
+            // Update statistik guru
             const todayAbsensi = absensiData.filter(item => item.tanggal === today);
             const hadirToday = todayAbsensi.filter(item => item.status === 'hadir').length;
             const totalGuru = guruData.length;
@@ -1280,6 +1442,78 @@
             document.getElementById('totalGuru').textContent = totalGuru;
             document.getElementById('guruHadir').textContent = hadirToday;
             document.getElementById('guruTidakHadir').textContent = totalGuru - hadirToday;
+            
+            // Update statistik siswa
+            const todayAbsensiSiswa = absensiSiswaData.filter(item => item.tanggal === today);
+            const siswaHadir = todayAbsensiSiswa.filter(item => item.status === 'hadir').length;
+            const siswaIzin = todayAbsensiSiswa.filter(item => item.status === 'izin').length;
+            const siswaAlfa = todayAbsensiSiswa.filter(item => item.status === 'alfa').length;
+            const totalSiswa = siswaData.length;
+            
+            document.getElementById('totalSiswa').textContent = totalSiswa;
+            document.getElementById('siswaHadir').textContent = siswaHadir;
+            document.getElementById('siswaIzin').textContent = siswaIzin;
+            document.getElementById('siswaAlfa').textContent = siswaAlfa;
+            
+            // Update scrolling text
+            updateScrollingText();
+        }
+
+        // Update scrolling text dengan nama guru yang hadir
+        function updateScrollingText() {
+            const today = new Date().toISOString().split('T')[0];
+            const todayAbsensi = absensiData.filter(item => item.tanggal === today && item.status === 'hadir');
+            const attendanceText = document.getElementById('attendanceText');
+            const scrollingDiv = document.getElementById('scrollingText');
+            
+            if (todayAbsensi.length === 0) {
+                attendanceText.textContent = 'Belum ada guru yang hadir hari ini';
+                scrollingDiv.classList.remove('scrolling-text');
+                return;
+            }
+            
+            // Group absensi berdasarkan nama guru (hanya yang hadir)
+            const guruHadir = {};
+            todayAbsensi.forEach(item => {
+                if (!guruHadir[item.nama]) {
+                    guruHadir[item.nama] = {
+                        nama: item.nama,
+                        datang: null,
+                        pulang: null
+                    };
+                }
+                if (item.jenis === 'datang') {
+                    guruHadir[item.nama].datang = item.waktu;
+                } else {
+                    guruHadir[item.nama].pulang = item.waktu;
+                }
+            });
+            
+            // Buat teks berjalan hanya untuk guru yang hadir
+            const guruList = Object.values(guruHadir);
+            let scrollText = '';
+            
+            guruList.forEach((guru, index) => {
+                let timeInfo = '';
+                if (guru.datang && guru.pulang) {
+                    timeInfo = ` (${guru.datang} - ${guru.pulang})`;
+                } else if (guru.datang) {
+                    timeInfo = ` (${guru.datang})`;
+                } else if (guru.pulang) {
+                    timeInfo = ` (Pulang: ${guru.pulang})`;
+                }
+                
+                scrollText += `✅ ${guru.nama}${timeInfo}`;
+                
+                if (index < guruList.length - 1) {
+                    scrollText += ' • ';
+                }
+            });
+            
+            attendanceText.textContent = scrollText;
+            
+            // Selalu aktifkan animasi scrolling untuk guru yang hadir
+            scrollingDiv.classList.add('scrolling-text');
         }
 
         // Load rekap data
@@ -1862,6 +2096,9 @@
             
             alert(`Absensi kelas ${kelas} berhasil disimpan!`);
             
+            // Update statistics
+            updateStatistics();
+            
             // Reset form
             loadSiswaByKelas();
         }
@@ -2091,11 +2328,287 @@
             displaySiswaData();
         });
 
+        // ===== CLASS DATA MANAGEMENT =====
+        
+        // Variables untuk edit mode kelas
+        let isEditModeKelas = false;
+        let editKelasId = null;
+
+        // Function untuk menampilkan form data kelas
+        function showFormDataKelas() {
+            document.getElementById('formDataKelas').classList.remove('hidden');
+            updateWaliKelasOptions();
+            document.getElementById('namaKelas').focus();
+        }
+
+        // Function untuk menyembunyikan form data kelas
+        function hideFormDataKelas() {
+            document.getElementById('formDataKelas').classList.add('hidden');
+            cancelFormDataKelas();
+        }
+
+        // Function untuk membatalkan form kelas
+        function cancelFormDataKelas() {
+            document.getElementById('dataKelasForm').reset();
+            isEditModeKelas = false;
+            editKelasId = null;
+            document.getElementById('submitButtonTextKelas').textContent = 'Simpan Data Kelas';
+        }
+
+        // Function untuk update dropdown wali kelas
+        function updateWaliKelasOptions() {
+            const waliKelasSelect = document.getElementById('waliKelas');
+            
+            // Simpan value yang sedang dipilih
+            const currentValue = waliKelasSelect.value;
+            
+            // Hapus semua option kecuali yang pertama
+            while (waliKelasSelect.children.length > 1) {
+                waliKelasSelect.removeChild(waliKelasSelect.lastChild);
+            }
+            
+            // Tambahkan option guru yang belum menjadi wali kelas
+            guruData.forEach(guru => {
+                // Cek apakah guru sudah menjadi wali kelas
+                const sudahWaliKelas = kelasData.some(kelas => 
+                    kelas.waliKelas === guru.nama && (!isEditModeKelas || kelas.id !== editKelasId)
+                );
+                
+                if (!sudahWaliKelas) {
+                    const option = document.createElement('option');
+                    option.value = guru.nama;
+                    option.textContent = `${guru.nama} - ${guru.mapel}`;
+                    waliKelasSelect.appendChild(option);
+                }
+            });
+            
+            // Restore value jika masih ada
+            if (currentValue && [...waliKelasSelect.options].some(opt => opt.value === currentValue)) {
+                waliKelasSelect.value = currentValue;
+            }
+        }
+
+        // Function untuk menampilkan data kelas dalam tabel
+        function displayKelasData() {
+            const tbody = document.getElementById('tabelDataKelas');
+            const filterTingkat = document.getElementById('filterTingkatKelas').value;
+            tbody.innerHTML = '';
+            
+            let filteredKelas = kelasData;
+            if (filterTingkat) {
+                filteredKelas = kelasData.filter(kelas => kelas.tingkat === filterTingkat);
+            }
+            
+            if (filteredKelas.length === 0) {
+                const message = filterTingkat ? `Belum ada data kelas untuk tingkat ${filterTingkat}` : 'Belum ada data kelas';
+                tbody.innerHTML = `<tr><td colspan="9" class="px-4 py-8 text-center text-gray-500">${message}</td></tr>`;
+                return;
+            }
+            
+            filteredKelas.forEach((kelas, index) => {
+                // Hitung jumlah siswa di kelas ini
+                const jumlahSiswa = siswaData.filter(siswa => siswa.kelas === kelas.nama).length;
+                const persentaseKapasitas = Math.round((jumlahSiswa / kelas.kapasitas) * 100);
+                
+                // Tentukan warna berdasarkan kapasitas
+                let kapasitasClass = 'text-green-600';
+                if (persentaseKapasitas >= 90) {
+                    kapasitasClass = 'text-red-600 font-bold';
+                } else if (persentaseKapasitas >= 75) {
+                    kapasitasClass = 'text-yellow-600 font-semibold';
+                }
+                
+                const row = `
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">${index + 1}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${kelas.nama}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">${kelas.tingkat}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">${kelas.waliKelas}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">${kelas.ruang}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm ${kapasitasClass}">${jumlahSiswa}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">${kelas.kapasitas}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900">${kelas.tahunAjaran}</td>
+                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                            <button onclick="editKelas(${kelas.id})" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-lg text-xs font-semibold transition-colors duration-200 flex items-center space-x-1">
+                                <span>✏️</span>
+                                <span>Edit</span>
+                            </button>
+                            <button onclick="deleteKelas(${kelas.id})" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg text-xs font-semibold transition-colors duration-200 flex items-center space-x-1">
+                                <span>🗑️</span>
+                                <span>Hapus</span>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Function untuk edit kelas
+        function editKelas(id) {
+            const kelas = kelasData.find(k => k.id === id);
+            if (!kelas) return;
+            
+            // Set form ke edit mode
+            isEditModeKelas = true;
+            editKelasId = id;
+            
+            // Isi form dengan data kelas
+            document.getElementById('namaKelas').value = kelas.nama;
+            document.getElementById('tingkatKelas').value = kelas.tingkat;
+            document.getElementById('kapasitasKelas').value = kelas.kapasitas;
+            document.getElementById('ruangKelas').value = kelas.ruang;
+            document.getElementById('tahunAjaran').value = kelas.tahunAjaran;
+            document.getElementById('keteranganKelas').value = kelas.keterangan || '';
+            
+            // Update wali kelas options dan set value
+            updateWaliKelasOptions();
+            document.getElementById('waliKelas').value = kelas.waliKelas;
+            
+            // Ubah teks tombol
+            document.getElementById('submitButtonTextKelas').textContent = 'Update Data Kelas';
+            
+            // Tampilkan form
+            showFormDataKelas();
+        }
+
+        // Function untuk hapus kelas
+        function deleteKelas(id) {
+            const kelas = kelasData.find(k => k.id === id);
+            if (!kelas) return;
+            
+            // Cek apakah ada siswa di kelas ini
+            const siswaDiKelas = siswaData.filter(siswa => siswa.kelas === kelas.nama);
+            if (siswaDiKelas.length > 0) {
+                alert(`Tidak dapat menghapus kelas ${kelas.nama} karena masih ada ${siswaDiKelas.length} siswa di kelas ini. Silakan pindahkan siswa terlebih dahulu.`);
+                return;
+            }
+            
+            if (confirm(`Apakah Anda yakin ingin menghapus kelas ${kelas.nama}?`)) {
+                kelasData = kelasData.filter(k => k.id !== id);
+                displayKelasData();
+                updateKelasOptions();
+                alert('Data kelas berhasil dihapus!');
+            }
+        }
+
+        // Function untuk update dropdown kelas di form siswa dan absensi
+        function updateKelasOptions() {
+            const kelasSelects = [
+                document.getElementById('kelasSiswa'),
+                document.getElementById('filterKelas'),
+                document.getElementById('filterKelasSiswa'),
+                document.getElementById('filterKelasSiswaRekap')
+            ];
+            
+            kelasSelects.forEach(select => {
+                if (!select) return;
+                
+                // Simpan value yang sedang dipilih
+                const currentValue = select.value;
+                
+                // Hapus semua option kecuali yang pertama
+                while (select.children.length > 1) {
+                    select.removeChild(select.lastChild);
+                }
+                
+                // Tambahkan option kelas yang aktif
+                kelasData.forEach(kelas => {
+                    const option = document.createElement('option');
+                    option.value = kelas.nama;
+                    option.textContent = kelas.nama;
+                    select.appendChild(option);
+                });
+                
+                // Restore value jika masih ada
+                if (currentValue && [...select.options].some(opt => opt.value === currentValue)) {
+                    select.value = currentValue;
+                }
+            });
+        }
+
+        // Data Kelas form submission
+        document.getElementById('dataKelasForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                nama: document.getElementById('namaKelas').value,
+                tingkat: document.getElementById('tingkatKelas').value,
+                waliKelas: document.getElementById('waliKelas').value,
+                kapasitas: parseInt(document.getElementById('kapasitasKelas').value),
+                ruang: document.getElementById('ruangKelas').value,
+                tahunAjaran: document.getElementById('tahunAjaran').value,
+                keterangan: document.getElementById('keteranganKelas').value
+            };
+            
+            // Validasi nama kelas unik
+            const existingKelas = kelasData.find(kelas => 
+                kelas.nama === formData.nama && (!isEditModeKelas || kelas.id !== editKelasId)
+            );
+            
+            if (existingKelas) {
+                alert('Nama kelas sudah ada! Silakan gunakan nama yang berbeda.');
+                return;
+            }
+            
+            // Validasi ruang kelas unik
+            const existingRuang = kelasData.find(kelas => 
+                kelas.ruang === formData.ruang && (!isEditModeKelas || kelas.id !== editKelasId)
+            );
+            
+            if (existingRuang) {
+                alert('Ruang kelas sudah digunakan! Silakan pilih ruang yang berbeda.');
+                return;
+            }
+            
+            if (isEditModeKelas) {
+                // Update data yang sudah ada
+                const index = kelasData.findIndex(k => k.id === editKelasId);
+                if (index !== -1) {
+                    const oldNama = kelasData[index].nama;
+                    kelasData[index] = { ...kelasData[index], ...formData };
+                    
+                    // Update kelas siswa jika nama kelas berubah
+                    if (oldNama !== formData.nama) {
+                        siswaData.forEach(siswa => {
+                            if (siswa.kelas === oldNama) {
+                                siswa.kelas = formData.nama;
+                            }
+                        });
+                        
+                        // Update absensi siswa
+                        absensiSiswaData.forEach(absensi => {
+                            if (absensi.kelas === oldNama) {
+                                absensi.kelas = formData.nama;
+                            }
+                        });
+                    }
+                    
+                    alert('Data kelas berhasil diupdate!');
+                }
+            } else {
+                // Tambah data baru
+                const newKelas = {
+                    id: nextKelasId++,
+                    ...formData
+                };
+                kelasData.push(newKelas);
+                alert('Data kelas berhasil disimpan!');
+            }
+            
+            // Reset form dan update tampilan
+            this.reset();
+            hideFormDataKelas();
+            displayKelasData();
+            updateKelasOptions();
+            displaySiswaData(); // Refresh tampilan siswa jika ada perubahan
+        });
+
         // Pengaturan form submission
         document.getElementById('pengaturanForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Pengaturan berhasil disimpan!');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979b8363b3cefd07',t:'MTc1Njk2ODIxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979ba0cfc30c91b3',t:'MTc1Njk2OTQxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
